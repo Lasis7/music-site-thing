@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+build
+coverage
+
+# Generated files
+*.min.js
+*.min.css
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# TanStack Router generated file
+src/routeTree.gen.ts
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+
+# Cache
+.cache
+.next
+.nuxt
+.vite
+.vercel
+
+# Binary assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.pdf
+
+# IDE
+.vscode
+.idea
