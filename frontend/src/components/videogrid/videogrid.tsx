@@ -1,6 +1,6 @@
-import type { Content } from '../../-types/-types';
-import GridItem from './-griditem';
-import CButton from '../-button';
+import type { Content } from '@/types/types';
+import GridItem from './griditem';
+import CButton from '../button';
 
 export default function VideoGrid() {
   const links: Content[] = [

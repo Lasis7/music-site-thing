@@ -1,15 +1,11 @@
-import { createFileRoute, Navigate } from '@tanstack/react-router';
-import { useAuth } from './-providers/-useAuth';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
-  component: Index,
+  beforeLoad: ({ context }) => {
+    if (context.auth.user) {
+      throw redirect({ to: '/discover' });
+    }
+
+    throw redirect({ to: '/login' });
+  },
 });
-
-function Index() {
-  const { user } = useAuth();
-
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-  return <Navigate to="/discover" />;
-}

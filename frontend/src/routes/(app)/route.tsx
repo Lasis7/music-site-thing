@@ -1,5 +1,5 @@
-import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
-import { NavBar } from '../-components/-navbar/-navbar';
+import { createFileRoute, redirect } from '@tanstack/react-router';
+import { AppLayout } from '@/features/app/AppLayout';
 
 export const Route = createFileRoute('/(app)')({
   beforeLoad: ({ context, location }) => {
@@ -14,12 +14,3 @@ export const Route = createFileRoute('/(app)')({
   },
   component: AppLayout,
 });
-
-function AppLayout() {
-  return (
-    <>
-      <NavBar />
-      <Outlet />
-    </>
-  );
-}

@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Colors */
   --color-bglighter: #5b6b3e;
   --color-bgdarker: #5d6941;
   --color-buttonPrimary: #bcb8b1;
@@ -9,5 +10,19 @@
   --color-white: #ffffff;
   --color-gray: #7d7d7d;
 
+  /* Font */
   --font-montserrat: 'Montserrat', sans-serif;
+
+  /* Font size */
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-sm: 14px;
+
+  /* Spacing */
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
 }

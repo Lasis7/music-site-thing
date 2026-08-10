@@ -1,4 +1,4 @@
-import type { ButtonProp } from '../-types/-types';
+import type { ButtonProp } from '@/types/types';
 
 export default function CButton({ label, onClick }: ButtonProp) {
   return (

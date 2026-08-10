@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
-import { useBurgerMenu } from '../../-hooks/-useBurgerMenu';
-import type { HamburgerMenuProps } from '../../-types/-types';
+import { useBurgerMenu } from '@/hooks/useBurgerMenu';
+import type { HamburgerMenuProps } from '@/types/types';
 
 export default function Hamburgermenu({
   links,

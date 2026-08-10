@@ -1,14 +1,12 @@
 import { Menu } from 'lucide-react';
-import Hamburgermenu from './-hamburgermenu';
+import Hamburgermenu from './hamburgermenu';
 import { useState } from 'react';
-import type { NavBarOptions } from '../../-types/-types';
-import { useAuth } from '../../-providers/-useAuth';
-import { useRouter } from '@tanstack/react-router';
+import type { NavBarOptions } from '@/types/types';
+import { useAuth } from '@/providers/AuthProvider/useAuth';
 
 export function NavBar() {
   const [burgerMenuOpen, setBurgerMenuOpen] = useState<boolean>(false);
   const { logOut } = useAuth();
-  const router = useRouter();
 
   const links: NavBarOptions[] = [
     { label: 'Discover' },
@@ -19,8 +17,6 @@ export function NavBar() {
 
   function handleLogout() {
     logOut();
-    router.invalidate();
-    console.log('a');
   }
 
   return (

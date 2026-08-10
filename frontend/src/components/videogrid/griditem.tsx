@@ -1,4 +1,4 @@
-import type { Content } from '../../-types/-types';
+import type { Content } from '@/types/types';
 
 export default function GridItem({ link }: { link: Content }) {
   return (
