@@ -25,7 +25,7 @@ export function NavBar() {
         <ul className="flex flex-row gap-10">
           {links.map((link) => (
             <li
-              className="font-montserrat font-semibold text-xl text-white cursor-pointer"
+              className="font-montserrat font-semibold text-xl text-general cursor-pointer"
               key={link.label}
               onClick={link.onClick}
             >

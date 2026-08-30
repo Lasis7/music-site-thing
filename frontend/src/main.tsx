@@ -2,12 +2,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './styles/tokens.css';
 import { AuthProvider } from './providers/AuthProvider/AuthProvider.tsx';
+import { ThemeProvider } from './providers/ThemeProvider/ThemeProvider.tsx';
 import { InnerApp } from './config/RouterProvider.tsx';
 
 export function App() {
   return (
     <AuthProvider>
-      <InnerApp />
+      <ThemeProvider>
+        <InnerApp />
+      </ThemeProvider>
     </AuthProvider>
   );
 }

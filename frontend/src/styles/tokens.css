@@ -3,12 +3,11 @@
 
 @theme {
   /* Colors */
-  --color-bglighter: #5b6b3e;
-  --color-bgdarker: #5d6941;
-  --color-buttonPrimary: #bcb8b1;
-  --color-card: #774b30;
-  --color-white: #ffffff;
-  --color-gray: #7d7d7d;
+  --color-background: var(--bg-color);
+  --color-buttonPrimary: var(--button-primary);
+  --color-card: var(--bg-card);
+  --color-general: var(--text-general);
+  --color-gray: var(--menu-hover-color);
 
   /* Font */
   --font-montserrat: 'Montserrat', sans-serif;
@@ -25,4 +24,13 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+}
+
+:root[data-theme='Grassroots'] {
+  --bg-color: #5b6b3e;
+  --button-primary: #bcb8b1;
+  --bg-card: #774b30;
+  --text-general: #ffffff;
+  --button-text-primary: #000000;
+  --menu-hover-color: #7d7d7d;
 }
