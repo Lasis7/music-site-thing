@@ -1,5 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 
+export type Themes = 'Grassroots';
+
 export type Content = {
   id: number;
   title: string;
