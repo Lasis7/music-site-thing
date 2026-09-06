@@ -11,13 +11,15 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
+    "@tanstack/react-form": "^1.33.5",
     "@tanstack/react-router": "^1.170.11",
     "@tanstack/react-router-devtools": "^1.167.0",
     "lucide-react": "^1.17.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-ui": "1.0.0-beta.32",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

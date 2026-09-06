@@ -1,8 +1,11 @@
 import type { Content } from '@/types/types';
 import GridItem from './griditem';
 import CButton from '../button';
+import { useAuth } from '@/providers/AuthProvider/useAuth';
 
 export default function VideoGrid() {
+  const { user } = useAuth();
+
   const links: Content[] = [
     {
       id: 1,
@@ -22,7 +25,10 @@ export default function VideoGrid() {
   ];
   return (
     <>
-      <CButton label="Refresh" />
+      <div className="flex justify-center xl:justify-end">
+        <CButton label="Refresh" />
+        <div className="text-text-general">logged in as {user}</div>
+      </div>
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-10 py-4 justify-items-center">
         {links.map((link) => (
           <GridItem key={link.id} link={link} />

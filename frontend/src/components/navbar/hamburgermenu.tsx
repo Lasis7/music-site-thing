@@ -22,7 +22,7 @@ export default function Hamburgermenu({
       <ul className="flex flex-col gap-10 pt-20 px-10">
         {links.map((link) => (
           <li
-            className="font-montserrat font-semibold text-xl text-general duration-300 hover:bg-gray hover:p-4 hover:rounded-lg"
+            className="font-montserrat font-semibold cursor-pointer text-xl text-text-general duration-300 hover:bg-menu-hover hover:p-4 hover:rounded-lg"
             key={link.label}
             onClick={link.onClick}
           >

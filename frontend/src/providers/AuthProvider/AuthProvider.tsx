@@ -2,7 +2,7 @@ import { type ReactNode, useState } from 'react';
 import { AuthContext } from './AuthContext';
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<string | null>('aaa');
+  const [user, setUser] = useState<string | null>(null);
 
   function logIn(username: string) {
     setUser(username);

@@ -1,16 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sedgwick+Ave+Display&display=swap');
 @import 'tailwindcss';
+
+html,
+body,
+#root {
+  min-height: 100dvh;
+  height: 100dvh;
+  min-width: 100dvw;
+  margin: 0;
+  background-color: var(--bg-color);
+}
+
+@layer utilities {
+  .font-outline-4 {
+    text-shadow:
+      3px 3px 0 var(--big-text-outline),
+      -3px 3px 0 var(--big-text-outline),
+      3px -3px 0 var(--big-text-outline),
+      -3px -3px 0 var(--big-text-outline),
+      3px 0 var(--big-text-outline),
+      -3px 0 var(--big-text-outline),
+      0 3px var(--big-text-outline),
+      0 -3px var(--big-text-outline);
+  }
+}
 
 @theme {
   /* Colors */
   --color-background: var(--bg-color);
-  --color-buttonPrimary: var(--button-primary);
+  --color-button-primary: var(--button-primary);
+  --color-button-primary-text: var(--button-text-primary);
   --color-card: var(--bg-card);
-  --color-general: var(--text-general);
-  --color-gray: var(--menu-hover-color);
+  --color-text-general: var(--text-color);
+  --color-menu-hover: var(--menu-hover-color);
+  --color-border-color: var(--border-color);
+  --color-input-bg: var(--bg-input);
+  --color-input-border: var(--input-border);
+  --color-big-text: var(--big-text-color);
+
+  --color-general-black: #000000;
+  --color-general-white: #ffffff;
 
   /* Font */
   --font-montserrat: 'Montserrat', sans-serif;
+  --font-sedgwick: 'Sedgwick Ave Display', cursive;
 
   /* Font size */
   --text-base: 16px;
@@ -24,13 +58,22 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 128px;
+
+  --breakpoint-xs: 20rem;
 }
 
 :root[data-theme='Grassroots'] {
   --bg-color: #5b6b3e;
   --button-primary: #bcb8b1;
-  --bg-card: #774b30;
-  --text-general: #ffffff;
   --button-text-primary: #000000;
+  --bg-card: #774b30;
+  --border-color: #ffffff;
+  --text-color: #ffffff;
   --menu-hover-color: #7d7d7d;
+  --bg-input: #ffffff;
+  --input-border: #000000;
+  --big-text-color: #b0704f;
+  --big-text-outline: #ffe4b1;
 }
