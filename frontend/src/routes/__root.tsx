@@ -9,7 +9,7 @@ interface RouterContext {
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => {
     return (
-      <div className="bg-background p-12 min-w-screen w-full min-h-screen h-full relative">
+      <div className="relative min-h-dvh w-full bg-background p-12">
         <Outlet />
         <TanStackRouterDevtools />
       </div>

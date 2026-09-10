@@ -3,7 +3,7 @@ import type { Content } from '@/types/types';
 export default function GridItem({ link }: { link: Content }) {
   return (
     <iframe
-      className="w-full h-100 border border-general min-w-25 max-w-175 max-h-90"
+      className="w-full h-100 border border-border-color max-w-175 max-h-90"
       src={link.link}
       title={link.title}
       referrerPolicy="strict-origin-when-cross-origin"

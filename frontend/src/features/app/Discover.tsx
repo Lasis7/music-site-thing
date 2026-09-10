@@ -1,10 +1,10 @@
-import InnerCard from '@/components/innerCard';
+import Card from '@/components/Card';
 import VideoGrid from '@/components/videogrid/videogrid';
 
 export function Discover() {
   return (
-    <InnerCard>
+    <Card>
       <VideoGrid />
-    </InnerCard>
+    </Card>
   );
 }
