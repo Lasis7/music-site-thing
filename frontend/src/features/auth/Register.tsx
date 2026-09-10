@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { getRandomPlaceholder } from '@/shared/shared';
 import CButton from '@/components/button';
 import { Link } from '@tanstack/react-router';
+import { Eye, EyeClosed } from 'lucide-react';
 
 export function Register() {
   const [emailPlaceholder, setEmailPlaceholder] = useState(
@@ -25,12 +26,14 @@ export function Register() {
     getRandomPlaceholder([...passwordPlaceholders]),
   );
 
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
   const registerSchema = z.object({
     email: z.email(),
-    username: z.string().min(1),
+    username: z.string().min(1, 'Username too short'),
     password: z
       .string()
-      .min(8)
+      .min(8, 'Password must be at least 8 letters long')
       .regex(/[0-9]/, 'Password must contain a number')
       .regex(/[A-Z]/, 'Password must contain an uppercase letter')
       .regex(/[a-z]/, 'Password must contain a lowercase letter'),
@@ -46,6 +49,7 @@ export function Register() {
       console.log(value);
     },
     validators: {
+      onSubmit: registerSchema,
       onBlur: registerSchema,
     },
   });
@@ -62,7 +66,7 @@ export function Register() {
           <BigText text="Register" />
           <Field name="email">
             {(field) => {
-              const { errors } = field.state.meta;
+              const { errors, isTouched, isBlurred } = field.state.meta;
               return (
                 <>
                   <CInput
@@ -70,6 +74,12 @@ export function Register() {
                     id="email"
                     value={field.state.value}
                     label="Email"
+                    error={
+                      errors.length > 0 && isTouched && isBlurred
+                        ? errors[0]?.message
+                        : undefined
+                    }
+                    onBlur={field.handleBlur}
                     onChange={(e) => {
                       field.handleChange(e.target.value);
                       {
@@ -85,16 +95,13 @@ export function Register() {
                       }
                     }}
                   />
-                  {errors.length > 0 && (
-                    <span className="text-red-500">{errors[0]?.message}</span>
-                  )}
                 </>
               );
             }}
           </Field>
           <Field name="username">
             {(field) => {
-              const { errors } = field.state.meta;
+              const { errors, isTouched, isBlurred } = field.state.meta;
               return (
                 <>
                   <CInput
@@ -102,6 +109,12 @@ export function Register() {
                     id="username"
                     value={field.state.value}
                     label="Username"
+                    error={
+                      errors.length > 0 && isTouched && isBlurred
+                        ? errors[0]?.message
+                        : undefined
+                    }
+                    onBlur={field.handleBlur}
                     onChange={(e) => {
                       field.handleChange(e.target.value);
                       if (e.target.value.length === 0) {
@@ -114,16 +127,13 @@ export function Register() {
                       }
                     }}
                   />
-                  {errors.length > 0 && (
-                    <span className="text-red-500">{errors[0]?.message}</span>
-                  )}
                 </>
               );
             }}
           </Field>
           <Field name="password">
             {(field) => {
-              const { errors } = field.state.meta;
+              const { errors, isTouched, isBlurred } = field.state.meta;
               return (
                 <>
                   <CInput
@@ -131,7 +141,27 @@ export function Register() {
                     id="password"
                     value={field.state.value}
                     label="Password"
-                    type="password"
+                    error={
+                      errors.length > 0 && isTouched && isBlurred
+                        ? errors[0]?.message
+                        : undefined
+                    }
+                    type={passwordShown ? 'text' : 'password'}
+                    iconConfig={{
+                      icon: passwordShown ? (
+                        <EyeClosed
+                          size={32}
+                          className="cursor-pointer text-button-primary-text"
+                        />
+                      ) : (
+                        <Eye
+                          size={32}
+                          className="cursor-pointer text-button-primary-text"
+                        />
+                      ),
+                      onClick: () => setPasswordShown(!passwordShown),
+                    }}
+                    onBlur={field.handleBlur}
                     onChange={(e) => {
                       field.handleChange(e.target.value);
                       if (e.target.value.length === 0) {
@@ -144,9 +174,6 @@ export function Register() {
                       }
                     }}
                   />
-                  {errors.length > 0 && (
-                    <span className="text-red-500">{errors[0]?.message}</span>
-                  )}
                 </>
               );
             }}
@@ -158,12 +185,11 @@ export function Register() {
             </Link>
           </p>
           <Subscribe
-            selector={(state) => [state.canSubmit, state.isSubmitting]}
-            children={([canSubmit, isSubmitting]) => (
+            selector={(state) => [state.isSubmitting]}
+            children={([isSubmitting]) => (
               <CButton
                 type="submit"
                 label={isSubmitting ? '...' : 'Register'}
-                disabled={!canSubmit}
               />
             )}
           />

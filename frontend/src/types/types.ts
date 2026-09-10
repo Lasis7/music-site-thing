@@ -1,4 +1,9 @@
-import type { Dispatch, HTMLInputTypeAttribute, SetStateAction } from 'react';
+import type {
+  Dispatch,
+  HTMLInputTypeAttribute,
+  ReactNode,
+  SetStateAction,
+} from 'react';
 
 export type Themes = 'Grassroots';
 
@@ -31,5 +36,11 @@ export type InputProps = {
   value: string;
   label?: string;
   type?: HTMLInputTypeAttribute;
+  iconConfig?: {
+    icon: ReactNode;
+    onClick: () => void;
+  };
+  error?: string;
+  onBlur?: () => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

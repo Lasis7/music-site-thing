@@ -33,14 +33,17 @@ body,
   --color-button-primary-text: var(--button-text-primary);
   --color-card: var(--bg-card);
   --color-text-general: var(--text-color);
+  --color-text-secondary: var(--text-color-2);
   --color-menu-hover: var(--menu-hover-color);
   --color-border-color: var(--border-color);
   --color-input-bg: var(--bg-input);
   --color-input-border: var(--input-border);
   --color-big-text: var(--big-text-color);
+  --color-button-disabled: var(--button-text-disabled);
 
   --color-general-black: #000000;
   --color-general-white: #ffffff;
+  --color-general-red: #ad1c11;
 
   /* Font */
   --font-montserrat: 'Montserrat', sans-serif;
@@ -71,9 +74,11 @@ body,
   --bg-card: #774b30;
   --border-color: #ffffff;
   --text-color: #ffffff;
+  --text-color-2: #000000;
   --menu-hover-color: #7d7d7d;
   --bg-input: #ffffff;
   --input-border: #000000;
   --big-text-color: #b0704f;
   --big-text-outline: #ffe4b1;
+  --button-text-disabled: #7d7d7d;
 }

@@ -9,6 +9,7 @@ import { userPlaceholders, passwordPlaceholders } from '@/const/auth';
 import { useState } from 'react';
 import { getRandomPlaceholder } from '@/shared/shared';
 import { Link } from '@tanstack/react-router';
+import { Eye, EyeClosed } from 'lucide-react';
 
 export function Login() {
   const [usernamePlaceholder, setUsernamePlaceholder] = useState(
@@ -17,6 +18,8 @@ export function Login() {
   const [passwordPlaceholder, setPasswordPlaceholder] = useState(
     getRandomPlaceholder([...passwordPlaceholders]),
   );
+
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
   const loginSchema = z.object({
     username: z.string().min(1),
@@ -81,6 +84,20 @@ export function Login() {
                 value={field.state.value}
                 label="Password"
                 type="password"
+                iconConfig={{
+                  icon: passwordShown ? (
+                    <EyeClosed
+                      size={32}
+                      className="cursor-pointer text-button-primary-text"
+                    />
+                  ) : (
+                    <Eye
+                      size={32}
+                      className="cursor-pointer text-button-primary-text"
+                    />
+                  ),
+                  onClick: () => setPasswordShown(!passwordShown),
+                }}
                 onChange={(e) => {
                   field.handleChange(e.target.value);
                   if (e.target.value.length === 0) {
@@ -102,12 +119,16 @@ export function Login() {
             </Link>
           </p>
           <Subscribe
-            selector={(state) => [state.canSubmit, state.isSubmitting]}
-            children={([canSubmit, isSubmitting]) => (
+            selector={(state) => [
+              state.canSubmit,
+              state.isSubmitting,
+              state.isPristine,
+            ]}
+            children={([canSubmit, isSubmitting, isPristine]) => (
               <CButton
                 type="submit"
                 label={isSubmitting ? '...' : 'Login'}
-                disabled={!canSubmit}
+                disabled={!canSubmit || isPristine}
               />
             )}
           />
