@@ -1,19 +1,51 @@
 import type { ButtonProp } from '@/types/types';
+import { button } from '@/styles/tailwindVariants';
 
 export default function CButton({
   label,
   type,
   disabled,
+  icon,
+  iconReplaceLabel,
+  style,
   onClick,
 }: ButtonProp) {
+  function renderButtonContent() {
+    if (icon && iconReplaceLabel) {
+      return (
+        <>
+          <span className="hidden sm:block">{label}</span>
+          <span className="sm:hidden">{icon}</span>
+        </>
+      );
+    } else if (icon) {
+      return (
+        <>
+          <span className="sm:mr-md">{icon}</span>
+          {icon ? (
+            <span className="hidden sm:block">{label}</span>
+          ) : (
+            <span>{label}</span>
+          )}
+        </>
+      );
+    }
+  }
+
   return (
     <button
       onClick={onClick}
       type={type ?? 'button'}
       disabled={disabled}
-      className="py-2 px-5 text-button-primary-text disabled:text-button-disabled bg-button-primary rounded-md cursor-pointer disabled:cursor-default min-w-20 max-w-50 w-full"
+      className={button({
+        variant: style?.variant,
+        size: style?.size,
+        iconPositioning: style?.iconPositioning,
+        width: style?.width,
+        minWidth: style?.minWidth,
+      })}
     >
-      {label}
+      {renderButtonContent()}
     </button>
   );
 }

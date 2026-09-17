@@ -3,7 +3,7 @@ import type { Themes } from '@/types/types';
 
 type ThemeContextType = {
   theme: Themes;
-  toggleTheme: () => void;
+  toggleTheme: (theme: Themes) => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);

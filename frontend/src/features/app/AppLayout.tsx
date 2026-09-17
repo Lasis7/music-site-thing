@@ -4,7 +4,11 @@ import { Outlet } from '@tanstack/react-router';
 export function AppLayout() {
   return (
     <>
-      <NavBar />
+      <NavBar
+        style={{
+          menu: 'navbar',
+        }}
+      />
       <Outlet />
     </>
   );

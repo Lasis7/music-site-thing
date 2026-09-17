@@ -2,6 +2,7 @@ import { type InputProps } from '@/types/types';
 import { CircleAlert } from 'lucide-react';
 import { useState } from 'react';
 import { ErrorBox } from './ErrorBox';
+import { errorIconContainer } from '@/styles/tailwindVariants';
 
 export default function CInput({
   placeholder,
@@ -11,6 +12,7 @@ export default function CInput({
   type,
   iconConfig,
   error,
+  style,
   onBlur,
   onChange,
 }: InputProps) {
@@ -36,17 +38,12 @@ export default function CInput({
   }
 
   function renderErrorIcon() {
-    return !error ? undefined : iconConfig ? (
-      <div className="hidden xs:block absolute top-[45%] right-15">
-        <CircleAlert
-          size={28}
-          className="text-general-red"
-          onMouseOver={() => setIsHoveringOver(true)}
-          onMouseOut={() => setIsHoveringOver(false)}
-        />
-      </div>
-    ) : (
-      <div className="hidden xs:block absolute top-[45%] right-2">
+    return !error ? undefined : (
+      <div
+        className={errorIconContainer({
+          variant: style?.variant,
+        })}
+      >
         <CircleAlert
           size={28}
           className="text-general-red"

@@ -59,6 +59,9 @@ export function Login() {
                 id="username"
                 value={field.state.value}
                 label="Username"
+                style={{
+                  variant: 'normal',
+                }}
                 onChange={(e) => {
                   field.handleChange(e.target.value);
                   {
@@ -84,6 +87,9 @@ export function Login() {
                 value={field.state.value}
                 label="Password"
                 type="password"
+                style={{
+                  variant: 'extraIcon',
+                }}
                 iconConfig={{
                   icon: passwordShown ? (
                     <EyeClosed
@@ -129,6 +135,9 @@ export function Login() {
                 type="submit"
                 label={isSubmitting ? '...' : 'Login'}
                 disabled={!canSubmit || isPristine}
+                style={{
+                  width: 'limited',
+                }}
               />
             )}
           />

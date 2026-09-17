@@ -1,11 +1,16 @@
 import { useCallback, useRef } from 'react';
 import { useBurgerMenu } from '@/hooks/useBurgerMenu';
 import type { HamburgerMenuProps } from '@/types/types';
+import { useLocation } from '@tanstack/react-router';
+import { navBarItem } from '@/styles/tailwindVariants';
 
 export default function Hamburgermenu({
   links,
+  style,
   setBurgerMenuOpen,
 }: HamburgerMenuProps) {
+  const location = useLocation();
+
   const menuRef = useRef<HTMLElement | null>(null);
 
   const hamburgerClosingHandler = useCallback(() => {
@@ -22,7 +27,10 @@ export default function Hamburgermenu({
       <ul className="flex flex-col gap-10 pt-20 px-10">
         {links.map((link) => (
           <li
-            className="font-montserrat font-semibold cursor-pointer text-xl text-text-general duration-300 hover:bg-menu-hover hover:p-4 hover:rounded-lg"
+            className={navBarItem({
+              menu: style?.menu,
+              variant: location.href === link.path ? 'active' : undefined,
+            })}
             key={link.label}
             onClick={link.onClick}
           >

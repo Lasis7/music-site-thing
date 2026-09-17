@@ -3,7 +3,6 @@ import { ThemeContext } from './ThemeContext';
 import type { Themes } from '@/types/types';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [theme, setMode] = useState<Themes>(() => {
     return (localStorage.getItem('theme') as Themes) || 'Grassroots';
   });
@@ -13,8 +12,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  // Will be updated when there are new themes
-  const toggleTheme = () => {};
+  // Will be used when there are new themes
+  const toggleTheme = (theme: Themes) => {
+    setMode(theme);
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -4,6 +4,11 @@ import type {
   ReactNode,
   SetStateAction,
 } from 'react';
+import type {
+  ButtonVariants,
+  NavBarItemVariants,
+  ErrorIconContainerVariants,
+} from '@/styles/tailwindVariants';
 
 export type Themes = 'Grassroots';
 
@@ -17,16 +22,21 @@ export type ButtonProp = {
   label: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
   disabled?: boolean;
+  icon?: ReactNode;
+  iconReplaceLabel?: boolean;
+  style?: ButtonVariants;
   onClick?: () => void;
 };
 
 export type HamburgerMenuProps = {
   links: NavBarOptions[];
+  style?: NavBarItemVariants;
   setBurgerMenuOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export type NavBarOptions = {
   label: string;
+  path?: string;
   onClick?: () => void;
 };
 
@@ -36,6 +46,7 @@ export type InputProps = {
   value: string;
   label?: string;
   type?: HTMLInputTypeAttribute;
+  style?: ErrorIconContainerVariants;
   iconConfig?: {
     icon: ReactNode;
     onClick: () => void;
