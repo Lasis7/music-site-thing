@@ -1,11 +1,9 @@
 import type { Content } from '@/types/types';
 import GridItem from './griditem';
 import CButton from '../button';
-import { useAuth } from '@/providers/AuthProvider/useAuth';
+import { RefreshCcw } from 'lucide-react';
 
 export default function VideoGrid() {
-  const { user } = useAuth();
-
   const links: Content[] = [
     {
       id: 1,
@@ -26,8 +24,17 @@ export default function VideoGrid() {
   return (
     <>
       <div className="flex justify-center xl:justify-end">
-        <CButton label="Refresh" />
-        <div className="text-text-general">logged in as {user}</div>
+        <CButton
+          label="Refresh"
+          icon={<RefreshCcw size={28} />}
+          iconReplaceLabel
+          style={{
+            variant: 'primary',
+            size: 'sm',
+            iconPositioning: 'center',
+            width: 'limited',
+          }}
+        />
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-10 py-4 justify-items-center">
         {links.map((link) => (

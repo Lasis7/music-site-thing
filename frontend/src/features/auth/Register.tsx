@@ -74,6 +74,9 @@ export function Register() {
                     id="email"
                     value={field.state.value}
                     label="Email"
+                    style={{
+                      variant: 'normal',
+                    }}
                     error={
                       errors.length > 0 && isTouched && isBlurred
                         ? errors[0]?.message
@@ -109,6 +112,9 @@ export function Register() {
                     id="username"
                     value={field.state.value}
                     label="Username"
+                    style={{
+                      variant: 'normal',
+                    }}
                     error={
                       errors.length > 0 && isTouched && isBlurred
                         ? errors[0]?.message
@@ -141,6 +147,9 @@ export function Register() {
                     id="password"
                     value={field.state.value}
                     label="Password"
+                    style={{
+                      variant: 'extraIcon',
+                    }}
                     error={
                       errors.length > 0 && isTouched && isBlurred
                         ? errors[0]?.message
@@ -190,6 +199,9 @@ export function Register() {
               <CButton
                 type="submit"
                 label={isSubmitting ? '...' : 'Register'}
+                style={{
+                  width: 'limited',
+                }}
               />
             )}
           />

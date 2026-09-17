@@ -32,6 +32,9 @@ importers:
       react-ui:
         specifier: 1.0.0-beta.32
         version: 1.0.0-beta.32(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      tailwind-variants:
+        specifier: ^3.3.1
+        version: 3.3.1(tailwindcss@4.3.0)
       tailwindcss:
         specifier: ^4.3.0
         version: 4.3.0
@@ -1505,6 +1508,18 @@ packages:
 
   tabbable@4.0.0:
     resolution: {integrity: sha512-H1XoH1URcBOa/rZZWxLxHCtOdVUEev+9vo5YdYhC9tCY4wnybX+VQrCYuy9ubkg69fCBxCONJOSLGfw0DWMffQ==}
+
+  tailwind-variants@3.3.1:
+    resolution: {integrity: sha512-4pAvwUtM4HKBiRZftncAbpn6V9Hhwoa5Fl7O2u5zbp7Z5Cvu+/o/6+176WY3WCEES209543quG8zFIcXCsc5Jw==}
+    engines: {node: '>=16.9.x', pnpm: '>=7.x'}
+    peerDependencies:
+      tailwind-merge: '>=3.0.0'
+      tailwindcss: '*'
+    peerDependenciesMeta:
+      tailwind-merge:
+        optional: true
+      tailwindcss:
+        optional: true
 
   tailwindcss@4.3.0:
     resolution: {integrity: sha512-y6nxMGB1nMW9R6k96e5gdIFzcfL/gTJRNaqGes1YvkLnPVXzWgbqFF2yLC0T8G774n24cx3Pe8XrKoniCOAH+Q==}
@@ -3086,6 +3101,10 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tabbable@4.0.0: {}
+
+  tailwind-variants@3.3.1(tailwindcss@4.3.0):
+    optionalDependencies:
+      tailwindcss: 4.3.0
 
   tailwindcss@4.3.0: {}
 
