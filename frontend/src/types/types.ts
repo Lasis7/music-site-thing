@@ -55,3 +55,26 @@ export type InputProps = {
   onBlur?: () => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+export type DialogProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+};
+
+type contentType =
+  | {
+      id: number;
+      type: 'paragraph';
+      content: ReactNode;
+    }
+  | {
+      id: number;
+      type: 'list';
+      content: ReactNode[];
+    };
+
+export type introContentType = {
+  title: string;
+  content: contentType[];
+};

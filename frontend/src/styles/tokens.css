@@ -26,12 +26,19 @@ body,
   }
 }
 
+.introContentScroll {
+  overflow-y: scroll;
+  scrollbar-color: gray black;
+  scrollbar-width: thin;
+}
+
 @theme {
   /* Colors */
   --color-background: var(--bg-color);
   --color-button-primary: var(--button-primary);
   --color-button-primary-text: var(--button-text-primary);
   --color-card: var(--bg-card);
+  --color-dialog: var(--bg-dialog);
   --color-text-general: var(--text-color);
   --color-text-secondary: var(--text-color-2);
   --color-menu-hover: var(--menu-hover-color);
@@ -72,6 +79,7 @@ body,
   --button-primary: #bcb8b1;
   --button-text-primary: #000000;
   --bg-card: #774b30;
+  --bg-dialog: #000000;
   --border-color: #ffffff;
   --text-color: #ffffff;
   --text-color-2: #000000;

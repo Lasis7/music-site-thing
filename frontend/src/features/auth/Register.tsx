@@ -200,7 +200,9 @@ export function Register() {
                 type="submit"
                 label={isSubmitting ? '...' : 'Register'}
                 style={{
+                  variant: 'primary',
                   width: 'limited',
+                  size: 'sm',
                 }}
               />
             )}

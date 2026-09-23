@@ -22,13 +22,11 @@ export default function CButton({
       return (
         <>
           <span className="sm:mr-md">{icon}</span>
-          {icon ? (
-            <span className="hidden sm:block">{label}</span>
-          ) : (
-            <span>{label}</span>
-          )}
+          <span className="hidden sm:block">{label}</span>
         </>
       );
+    } else {
+      return <span>{label}</span>;
     }
   }
 

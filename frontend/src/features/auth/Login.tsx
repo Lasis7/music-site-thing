@@ -136,7 +136,9 @@ export function Login() {
                 label={isSubmitting ? '...' : 'Login'}
                 disabled={!canSubmit || isPristine}
                 style={{
+                  variant: 'primary',
                   width: 'limited',
+                  size: 'sm',
                 }}
               />
             )}
