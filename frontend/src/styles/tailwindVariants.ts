@@ -65,3 +65,12 @@ export const errorIconContainer = tv({
 export type ErrorIconContainerVariants = VariantProps<
   typeof errorIconContainer
 >;
+
+export const introScrollContainer = tv({
+  variants: {
+    variant: {
+      scrollContainer: 'max-h-50 introContentScroll',
+      none: '',
+    },
+  },
+});
