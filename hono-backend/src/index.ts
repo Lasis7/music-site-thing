@@ -1,30 +1,30 @@
 import { serve } from '@hono/node-server';
 import { app } from './app.js';
+import { env, nodeEnv } from './config/envSetup.js';
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
+console.log(`Environment: ${nodeEnv}`);
 
 const server = serve(
   {
     fetch: app.fetch,
-    port: Number(process.env.PORT) ?? 3000,
+    port: env.PORT,
   },
   (info) => {
     console.log(`Server is running on http://localhost:${info.port}`);
   },
 );
 
-process.on('SIGINT', () => {
-  server.close();
-  process.exit(0);
-});
-
-process.on('SIGTERM', () => {
+// Graceful shutdown according to docs
+function shutDown() {
+  console.log('Shutting down the server');
   server.close((err) => {
     if (err) {
-      console.error('error', err);
+      console.log('Error occured:', err.message);
       process.exit(1);
     }
+    process.exit(0);
   });
-});
+}
+
+process.on('SIGINT', shutDown);
+process.on('SIGTERM', shutDown);
