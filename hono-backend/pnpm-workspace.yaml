@@ -1,4 +1,5 @@
 allowBuilds:
+  bcrypt: set this to true or false
   esbuild: true
 minimumReleaseAgeExclude:
   - '@hono/node-server@2.1.0'
