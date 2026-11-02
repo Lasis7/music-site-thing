@@ -1,5 +1,11 @@
 import * as t from 'drizzle-orm/pg-core';
 
+export const statusEnum = t.pgEnum('statusEnum', [
+  'active',
+  'deleted',
+  'banned',
+]);
+
 export const UsersTable = t.snakeCase.table('users', {
   id: t.integer().primaryKey().generatedAlwaysAsIdentity({
     startWith: 1,
@@ -13,4 +19,6 @@ export const UsersTable = t.snakeCase.table('users', {
   passwordHash: t.varchar().notNull(),
   bio: t.varchar({ length: 10000 }),
   createdAt: t.timestamp({ withTimezone: true }).notNull().defaultNow(),
+  deletedAt: t.timestamp({ withTimezone: true }).defaultNow(),
+  status: statusEnum('statusEnum').notNull().default('active'),
 });

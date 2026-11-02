@@ -5,7 +5,7 @@ import { env } from './src/config/envSetup.js';
 // Drizzle db config object
 export default defineConfig({
   out: './src/db/migrations', // Migration output
-  schema: './src/db/schema.ts', // Schema location
+  schema: './src/db/schemas/*', // Schema location
   dialect: 'postgresql', // DB type
   strict: true, // Extra safety checks
   verbose: true, // Extra safety checks
