@@ -1,5 +1,5 @@
 import * as t from 'drizzle-orm/pg-core';
-import { ArtistsTable } from './artists.js';
+import { UsersTable } from './users.js';
 import { SongsTable } from './songs.js';
 
 export const PlaysTable = t.snakeCase.table('plays', {
@@ -13,10 +13,10 @@ export const PlaysTable = t.snakeCase.table('plays', {
   songId: t
     .integer()
     .notNull()
-    .references(() => SongsTable.id),
-  artistId: t
+    .references(() => SongsTable.id, { onDelete: 'restrict' }),
+  userId: t
     .integer()
     .notNull()
-    .references(() => ArtistsTable.id),
+    .references(() => UsersTable.id, { onDelete: 'set null' }),
   playAt: t.timestamp({ withTimezone: true }).notNull().defaultNow(),
 });

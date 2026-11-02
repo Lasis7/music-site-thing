@@ -8,11 +8,11 @@ export const FavoritesTable = t.snakeCase.table(
     songId: t
       .integer()
       .notNull()
-      .references(() => SongsTable.id),
+      .references(() => SongsTable.id, { onDelete: 'cascade' }),
     userId: t
       .integer()
       .notNull()
-      .references(() => UsersTable.id),
+      .references(() => UsersTable.id, { onDelete: 'cascade' }),
   },
   (table) => [t.primaryKey({ columns: [table.songId, table.userId] })],
 );
