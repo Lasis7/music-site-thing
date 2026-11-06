@@ -14,5 +14,8 @@ export const SongArtistTable = t.snakeCase.table(
       .notNull()
       .references(() => ArtistsTable.id, { onDelete: 'cascade' }),
   },
-  (table) => [t.primaryKey({ columns: [table.songId, table.artistId] })],
+  (table) => [
+    t.primaryKey({ columns: [table.songId, table.artistId] }),
+    t.index('artist_by_song_idx').on(table.songId, table.artistId),
+  ],
 );

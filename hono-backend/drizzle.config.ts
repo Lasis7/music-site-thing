@@ -1,11 +1,10 @@
-import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 import { env } from './src/config/envSetup.js';
 
 // Drizzle db config object
 export default defineConfig({
   out: './src/db/migrations', // Migration output
-  schema: './src/db/schemas/*', // Schema location
+  schema: './src/db/schemas/index.ts', // Schema location
   dialect: 'postgresql', // DB type
   strict: true, // Extra safety checks
   verbose: true, // Extra safety checks

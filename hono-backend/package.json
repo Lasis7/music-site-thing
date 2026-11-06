@@ -4,7 +4,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
     "build": "tsc",
-    "prod": "cross-env NODE_ENV=production node dist/index.js"
+    "prod": "cross-env NODE_ENV=production node dist/index.js",
+    "db:generate": "cross-env NODE_ENV=development npx drizzle-kit generate",
+    "db:migrate": "cross-env NODE_ENV=development npx drizzle-kit migrate",
+    "db:migrate:prod": "cross-env NODE_ENV=production npx drizzle-kit migrate"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.0",
