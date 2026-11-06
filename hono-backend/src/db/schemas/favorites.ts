@@ -14,5 +14,8 @@ export const FavoritesTable = t.snakeCase.table(
       .notNull()
       .references(() => UsersTable.id, { onDelete: 'cascade' }),
   },
-  (table) => [t.primaryKey({ columns: [table.songId, table.userId] })],
+  (table) => [
+    t.primaryKey({ columns: [table.songId, table.userId] }),
+    t.index('favorite_song_in_idx').on(table.userId, table.songId),
+  ],
 );

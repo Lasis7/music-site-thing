@@ -6,6 +6,8 @@ export const statusEnum = t.pgEnum('statusEnum', [
   'banned',
 ]);
 
+export const roleEnum = t.pgEnum('roleEnum', ['user', 'admin', 'owner']);
+
 export const UsersTable = t.snakeCase.table('users', {
   id: t.integer().primaryKey().generatedAlwaysAsIdentity({
     startWith: 1,
@@ -21,4 +23,5 @@ export const UsersTable = t.snakeCase.table('users', {
   createdAt: t.timestamp({ withTimezone: true }).notNull().defaultNow(),
   deletedAt: t.timestamp({ withTimezone: true }).defaultNow(),
   status: statusEnum('statusEnum').notNull().default('active'),
+  role: roleEnum('roleEnum').notNull().default('user'),
 });

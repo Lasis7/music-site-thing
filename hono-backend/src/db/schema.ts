@@ -12,8 +12,8 @@ export const relations: any = defineRelations(schema, (r) => ({
     }),
     // Get song plays based on user
     songPlays: r.many.SongsTable({
-      from: r.UsersTable.id.through(r.PlaysTable.userId),
-      to: r.SongsTable.id.through(r.PlaysTable.songId),
+      from: r.UsersTable.id.through(r.ImpressionsTable.userId),
+      to: r.SongsTable.id.through(r.ImpressionsTable.songId),
     }),
   },
   SongsTable: {
@@ -24,8 +24,8 @@ export const relations: any = defineRelations(schema, (r) => ({
     }),
     // Get users based on played song
     playedBy: r.many.UsersTable({
-      from: r.SongsTable.id.through(r.PlaysTable.userId),
-      to: r.UsersTable.id.through(r.PlaysTable.userId),
+      from: r.SongsTable.id.through(r.ImpressionsTable.userId),
+      to: r.UsersTable.id.through(r.ImpressionsTable.userId),
     }),
     // Get artists based on song
     songBy: r.many.ArtistsTable({
